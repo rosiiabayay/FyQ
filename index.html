@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10182b">
+  <title>Laboratorio de Ondas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-icon">〰</span><span>LAB<span class="brand-light">ORATORIO</span><small>FÍSICA · ONDAS</small></span></a>
+    <div class="top-tag"><span class="live-dot"></span> SIMULACIÓN INTERACTIVA</div>
+  </header>
+
+  <main class="shell">
+    <section class="intro">
+      <div>
+        <p class="eyebrow">EXPLORÁ · MODIFICÁ · DESCUBRÍ</p>
+        <h1>Laboratorio <span>de ondas</span></h1>
+        <p class="subtitle">Cambiá las condiciones y observá cómo responde una onda en tiempo real.</p>
+      </div>
+      <div class="intro-mark">波</div>
+    </section>
+
+    <section class="workspace">
+      <div class="simulation card">
+        <div class="section-head">
+          <div><span class="section-kicker">01 / VISUALIZACIÓN</span><h2>Propagación de la onda</h2></div>
+          <span class="status"><i></i> EN VIVO</span>
+        </div>
+        <div class="mode-row">
+          <button class="mode-btn active" data-mode="transverse">Transversal</button>
+          <button class="mode-btn" data-mode="longitudinal">Longitudinal</button>
+        </div>
+        <div class="canvas-wrap">
+          <canvas id="waveCanvas" aria-label="Visualización animada de una onda"></canvas>
+          <div class="axis-label x-label">Dirección de propagación →</div>
+          <div class="axis-label y-label">Desplazamiento</div>
+        </div>
+        <div class="legend">
+          <span><i class="legend-wave"></i> Onda</span>
+          <span><i class="legend-axis"></i> Línea de equilibrio</span>
+          <span id="modeDescription">Las partículas oscilan perpendicularmente a la propagación.</span>
+        </div>
+        <div class="sim-actions">
+          <button id="pauseBtn" class="primary-btn">Ⅱ Pausar</button>
+          <button id="resetBtn" class="ghost-btn">↺ Reiniciar valores</button>
+        </div>
+      </div>
+
+      <aside class="controls card">
+        <div class="section-head">
+          <div><span class="section-kicker">02 / PANEL DE CONTROL</span><h2>Parámetros</h2></div>
+          <span class="control-icon">⌘</span>
+        </div>
+        <div class="control-group">
+          <div class="control-title"><label for="amplitude">Amplitud</label><output id="ampOut">50 %</output></div>
+          <input id="amplitude" type="range" min="10" max="100" value="50">
+          <div class="range-labels"><span>Menor</span><span>Mayor</span></div>
+          <p>Máximo desplazamiento respecto de la posición de equilibrio.</p>
+        </div>
+        <div class="control-group">
+          <div class="control-title"><label for="frequency">Frecuencia</label><output id="freqOut">2 Hz</output></div>
+          <input id="frequency" type="range" min="1" max="8" value="2" step="0.5">
+          <div class="range-labels"><span>Menor</span><span>Mayor</span></div>
+          <p>Cantidad de oscilaciones que ocurren en un segundo.</p>
+        </div>
+        <div class="control-group">
+          <div class="control-title"><label for="speed">Velocidad</label><output id="speedOut">8 m/s</output></div>
+          <input id="speed" type="range" min="2" max="20" value="8">
+          <div class="range-labels"><span>Menor</span><span>Mayor</span></div>
+          <p>Rapidez con la que la perturbación se propaga por el medio.</p>
+        </div>
+        <div class="tip-box"><span>✦</span><div><strong>Probá esto</strong><p>Aumentá la frecuencia sin cambiar la velocidad. ¿Qué pasa con la longitud de onda?</p></div></div>
+      </aside>
+    </section>
+
+    <section class="data-grid">
+      <article class="metric card"><span>LONGITUD DE ONDA (λ)</span><strong id="lambdaValue">4,0 <small>m</small></strong><p>Distancia entre dos puntos equivalentes consecutivos.</p></article>
+      <article class="metric card"><span>PERÍODO (T)</span><strong id="periodValue">0,50 <small>s</small></strong><p>Tiempo que tarda en completarse una oscilación.</p></article>
+      <article class="metric card"><span>VELOCIDAD (v)</span><strong id="velocityValue">8 <small>m/s</small></strong><p>Rapidez de propagación de la onda.</p></article>
+      <article class="formula-card"><span>RELACIÓN FUNDAMENTAL</span><strong>v = λ · f</strong><p>Velocidad = longitud de onda × frecuencia</p></article>
+    </section>
+
+    <section class="explain card">
+      <div class="explain-icon">✧</div>
+      <div><span class="section-kicker">03 / ¿QUÉ ESTÁ PASANDO?</span><h2 id="explainTitle">La onda está en movimiento</h2><p id="explainText">La amplitud determina cuánto se aleja la perturbación de la posición de equilibrio. Probá mover los controles para investigar los cambios.</p></div>
+    </section>
+
+    <section class="challenge card">
+      <div><span class="section-kicker">04 / DESAFÍO PARA EL CURSO</span><h2>¿Podés predecir qué va a pasar?</h2><p>Antes de mover un control, preguntale al curso qué creen que ocurrirá. Después cambien el parámetro y comparen la predicción con el resultado.</p></div>
+      <button id="challengeBtn" class="challenge-btn">Nuevo desafío ↗</button>
+      <p id="challengeText" class="challenge-question">¿Qué cambia en la onda si duplicamos la frecuencia y mantenemos la velocidad?</p>
+    </section>
+
+    <footer>LABORATORIO DE ONDAS <span>·</span> Proyecto de Física y Química</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
